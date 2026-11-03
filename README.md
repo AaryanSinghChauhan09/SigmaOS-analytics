@@ -1,17 +1,16 @@
 # SigmaOS-analytics
 
-Linux Mint/Omarchy/Arch-inspired component for SigmaOS.
+SigmaOS web, monitoring, and security component.
 
-## Inspiration
+## Features
+- Production mode support
+- Comprehensive logging
+- Configuration management
 
-This component is inspired by Linux Mint, Omarchy, and Arch Linux to provide:
-- Essential OS functionality
-- Desktop integration
-- System management
-- Clear documentation
+## Usage
+```bash
+cargo run --release
+```
 
-## Status
-
-- Architecture: Designed
-- Implementation: Basic
-- Testing: Basic
+## License
+MIT
