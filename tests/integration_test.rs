@@ -1,22 +1,17 @@
-use anyhow::Result;
+use sigmaos_analytics::{Analytics, Event};
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#[test]
+fn test_record_and_query_aaa() {
+    // Arrange
+    let mut a = Analytics::new();
 
-    #[test]
-    fn test_basic_functionality() -> Result<()> {
-        let config = Config::default();
-        let result = config.process();
-        assert!(result.is_ok());
-        Ok(())
-    }
+    // Act
+    a.record(Event::new("page", "view").with_tag("home"));
+    a.record(Event::new("page", "view").with_tag("about"));
+    a.record(Event::new("click", "button").with_value(1.0));
 
-    #[test]
-    fn test_error_handling() -> Result<()> {
-        let invalid_config = Config::new("invalid");
-        let result = invalid_config.process();
-        assert!(result.is_ok());
-        Ok(())
-    }
+    // Assert
+    assert_eq!(a.event_count(), 3);
+    assert_eq!(a.get_counter("page", "view"), 2);
+    assert_eq!(a.get_counter("click", "button"), 1);
 }
