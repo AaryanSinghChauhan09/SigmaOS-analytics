@@ -3,7 +3,7 @@ name = "SigmaOS-analytics"
 tier = 2
 stability = "scaffold"
 language = "rust"
-description = "analytics component"
+description = "GitHub description is a placeholder; component scope remains unclassified."
 upstream = []
 
 [contract]
